@@ -92,13 +92,15 @@ const about = [
   },
 ];
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4433/api';
+
 const HomePage = () => {
   const [form] = useForm();
   const [messageApi, contextHolder] = message.useMessage();
 
   const handleSubmit = async (values) => {
     try {
-      const response = await axios.post("http://localhost:4433/api/feedback", values);
+      const response = await axios.post(`${API_BASE_URL}/feedback`, values);
       messageApi.success(response.data.message);
     } catch (err) {
       console.error(err);
@@ -125,7 +127,7 @@ const HomePage = () => {
             Your Personal Virtual Friend for Every Dimension
           </p>
           <button
-            onClick={() => (window.location.href = 'http://localhost:4433/api/auth/google')}
+            onClick={() => (window.location.href = `${API_BASE_URL}/auth/google`)}
             className="mt-0 px-8 py-5 bg-gray-900 text-gray-100 font-bold rounded-full shadow-xl hover:bg-gray-800 hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50"
           >
             <GoogleOutlined className="text-xl" />

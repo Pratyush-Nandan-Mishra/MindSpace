@@ -10,7 +10,7 @@ import {
 import ReactMarkdown from "react-markdown";
 import Sidebar from '../../components/Sidebar';
 
-const API_BASE_URL = "http://localhost:4433/api";
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4433/api';
 
 // ─── Dummy professionals ─────────────────────────────────────────────────────
 const PROFESSIONALS = [

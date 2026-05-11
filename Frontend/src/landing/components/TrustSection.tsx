@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4433/api';
+
 const pillars = [
   { emoji: "🚫", title: "Never diagnoses", desc: "MindSpace is not a doctor. It never labels or diagnoses any condition." },
   { emoji: "💊", title: "No medication advice", desc: "We never suggest, recommend, or discuss medication of any kind." },
@@ -63,7 +65,7 @@ export default function TrustSection() {
               If you are experiencing a mental health crisis, please contact a qualified mental health professional or a crisis helpline immediately.
             </p>
           </div>
-          <a href="http://localhost:4433/api/auth/google"
+          <a href={`${API_BASE_URL}/auth/google`}
             className="flex-shrink-0 px-6 py-3 bg-gradient-to-r from-violet-600 to-pink-500 text-white font-bold rounded-xl text-sm hover:scale-105 hover:shadow-lg hover:shadow-violet-500/30 transition-all duration-300 whitespace-nowrap">
             Start safely ✨
           </a>

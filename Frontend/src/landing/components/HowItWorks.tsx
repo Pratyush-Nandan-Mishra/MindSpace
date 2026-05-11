@@ -1,5 +1,7 @@
 import { motion } from "motion/react";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4433/api';
+
 const steps = [
   {
     number: "01",
@@ -80,7 +82,7 @@ export default function HowItWorks() {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-16 text-center">
-          <a href="http://localhost:4433/api/auth/google"
+          <a href={`${API_BASE_URL}/auth/google`}
             className="inline-block px-10 py-4 bg-gradient-to-r from-violet-600 to-pink-500 text-white font-bold rounded-2xl text-lg hover:shadow-2xl hover:shadow-violet-500/40 hover:scale-105 transition-all duration-300">
             Start your journey now ✨
           </a>

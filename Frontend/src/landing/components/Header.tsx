@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4433/api';
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -34,7 +36,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="http://localhost:4433/api/auth/google"
+          <a href={`${API_BASE_URL}/auth/google`}
             className="hidden sm:inline-block bg-gradient-to-r from-violet-600 to-pink-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-violet-500/30 hover:scale-105 transition-all duration-300">
             Get Started Free
           </a>
@@ -53,7 +55,7 @@ export default function Header() {
               {item.label}
             </a>
           ))}
-          <a href="http://localhost:4433/api/auth/google"
+          <a href={`${API_BASE_URL}/auth/google`}
             className="mt-2 block text-center bg-gradient-to-r from-violet-600 to-pink-500 text-white px-5 py-3 rounded-xl font-bold">
             Get Started Free
           </a>

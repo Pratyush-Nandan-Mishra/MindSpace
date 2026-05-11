@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4433/api';
+
 const messages = [
   { id: 0, from: "human", text: "I've been really stressed and I don't know why..." },
   { id: 1, from: "ai",    text: "That feeling is valid. I'm here with you 💙" },
@@ -83,7 +85,7 @@ export default function HeroSection() {
 
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4">
-            <a href="http://localhost:4433/api/auth/google"
+            <a href={`${API_BASE_URL}/auth/google`}
               className="px-8 py-4 bg-gradient-to-r from-violet-600 to-pink-500 text-white font-bold rounded-2xl text-lg hover:shadow-2xl hover:shadow-violet-500/40 hover:scale-105 transition-all duration-300 text-center">
               Start for free ✨
             </a>

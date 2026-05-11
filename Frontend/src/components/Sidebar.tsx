@@ -3,6 +3,8 @@ import { Avatar, Dropdown, Divider, message, Tooltip } from 'antd';
 import { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import axios from "axios"
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4433/api';
 import { DarkThemeProvider } from '../infra';
 import ProfileDrawer from '../pages/dashboard/ProfileDrawer';
 
@@ -30,7 +32,7 @@ const Sidebar = ({ isOpen, onToggle, chats, currentChatId, onNewChat, onSelectCh
   const handleSaveProfile = async (values) => {
     setLoading(true);
     try {
-      const response = await axios.put("http://localhost:4433/api/auth/profile", values, {
+      const response = await axios.put(`${API_BASE_URL}/auth/profile`, values, {
         withCredentials: true
       });
 

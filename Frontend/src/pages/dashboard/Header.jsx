@@ -6,6 +6,8 @@ import { DarkThemeProvider } from "../../infra";
 import axios from "axios";
 import { useAuth } from "../../context/AuthContext";
 
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4433/api';
+
 const DashboardHeader = () => {
   const { user, setUser, logout } = useAuth();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -49,7 +51,7 @@ const DashboardHeader = () => {
   const handleSaveProfile = async (values) => {
     setLoading(true);
     try {
-      const response = await axios.put("http://localhost:4433/api/auth/profile", values, {
+      const response = await axios.put(`${API_BASE_URL}/auth/profile`, values, {
         withCredentials: true
       });
 
